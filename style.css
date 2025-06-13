@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: aliceblue;
+    width: 90%;
+    margin: auto;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 100;
+}
+
+#product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: stretch;
+    justify-content: center;
+    margin: auto;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 200px;
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: whitesmoke;
+}
+
+.box:hover {
+    cursor: pointer;
+    background-color: #fff;
+    box-shadow: 0 4px 6px #999;
+}
+
+.rasm {
+    display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.sarlavha {
+    font-weight: 350;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.text {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #666;
+    padding: 0px 5px;
+}
+
+.price {
+    color: #444;
+    font-size: 18px;
+}
+
+.btns {
+    margin: 40px 0px;
+}
+
+#show-all {
+    cursor: pointer;
+    position: relative;
+    font-size: 24px;
+    left: 36px;
+    padding: 15px 30px;
+    border-radius: 15px;
+    border: none;
+    background-color: green;
+    color: whitesmoke;
+}
+
+#hide-button {
+    cursor: pointer;
+    position: relative;
+    font-size: 24px;
+    left: 528px;
+    padding: 15px 30px;
+    border-radius: 15px;
+    border: none;
+    background-color: orange;
+    color: whitesmoke;
+}
+
+#show-all:active {
+    background-color: #32cd32;
+    color: #fff;
+}
+
+#hide-button:active {
+    background-color: #ffbf00;
+    color: #fff;
+}
