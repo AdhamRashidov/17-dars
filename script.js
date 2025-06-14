@@ -9,12 +9,14 @@ async function getData() {
         console.log("Error in getData() [G'aaa karochi]", error);
     }
 }
-getData().then(console.log);
 
 const productList = document.getElementById('product-list');
 const showAllBtn = document.getElementById('show-all');
 const hideBtn = document.getElementById('hide-button');
-console.log(productList);
+const inputText = document.getElementById('eng');
+const outputText = document.getElementById('uzb');
+const fromLangSelect = document.querySelector('.engQuti .til'); 
+const toLangSelect = document.querySelector('.uzbQuti .til');   
 
 function mahsulotChiqar(products, limit) {
     productList.innerHTML = '';
@@ -63,8 +65,28 @@ getData().then(data => {
 
 showAllBtn.onclick = () => {
     mahsulotChiqar(hammaMahsulotlar);
-}
+};
 
 hideBtn.onclick = () => {
     mahsulotChiqar(hammaMahsulotlar, 5);
-}
+};
+
+inputText.addEventListener('input', async () => {
+    const text = inputText.value.trim();
+    const source = fromLangSelect.value; 
+    const target = toLangSelect.value;   
+
+    if (!text) {
+        outputText.value = '';
+        return;
+    }
+
+    try {
+        const res = await fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${source}|${target}`);
+        const data = await res.json();
+        outputText.value = data.responseData.translatedText || 'Tarjima topilmadi';
+    } catch (err) {
+        outputText.value = 'Tarjima xatosi yuz berdi 😢';
+        console.error('Tarjima xatosi:', err);
+    }
+});
